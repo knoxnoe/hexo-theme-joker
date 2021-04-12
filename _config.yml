@@ -1,0 +1,24 @@
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  Home: /
+  About: /about
+  Archives: /archives
+  Categories: /categories
+  # Tags: /tags
+
+# stylesheets loaded in the <head>
+stylesheets:
+  - /css/noe-theme.css
+
+# scripts loaded in the end of the body
+scripts:
+  - /js/noe-theme.js
+
+# 总体的html页面meta配置
+desc: noe
+keywords: noe
+author: noe
+copyright: noe

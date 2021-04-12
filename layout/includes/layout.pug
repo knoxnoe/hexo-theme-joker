@@ -1,0 +1,57 @@
+
+- var pageTitle = page.title || config.subtitle || ''
+- if (is_archive()) pageTitle = 'Archives'
+- if (is_tag()) pageTitle = 'Tag: ' + page.tag
+- if (is_category()) pageTitle = 'Category: ' + page.category
+- if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
+- if (is_year()) pageTitle += ': ' + page.year
+- pageTitle += ' [ ' + config.title + ' ]'
+
+- var Desc = page.description || page.title || config.description || theme.desc ||''
+- var Keywords = (config.keywords || []).join(',')
+- if (page.tags && page.tags.data) pageKeywords = page.tags.data.map(function(tag) {return tag.name;}).join(',')
+- if (page.keywords) pageKeywords = page.keywords.join(',')
+- var Author = config.email ? config.author + ',' + config.email : config.author
+- var Copyright = config.copyright || config.author
+
+doctype html
+html(lang=config.language)
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="description" content=Desc)
+    meta(name="keywords" content=Keywords)
+    mata(name="author" content=Author)
+    meta(name="copyright" content=Copyright)
+    title= pageTitle
+    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+      //- stylesheets list from _config.yml
+      each url in theme.stylesheets
+        link(rel='stylesheet', href=url)
+  body
+    header
+      include header/header.pug
+    main
+      #content-outer
+        #content-inner
+          if body
+            div!= body
+          else
+            block content
+    footer
+      include footer/footer.pug
+    //- #bottom-outer
+    //-   #bottom-inner
+    //-     span Site construction by
+    //-     span= ' ' + config.author + ' '
+    //-     span using
+    //-     a(href='http://hexo.io')
+    //-       span hexo blog framework
+    //-     span .
+    //-     br
+    //-     a(href=config.root) Home
+    if theme.scripts !== undefined && theme.scripts.length > 0
+      //- scripts list from config.yml
+      each url in theme.scripts
+        script(src=url)

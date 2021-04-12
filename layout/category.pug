@@ -1,0 +1,13 @@
+extends includes/layout.pug
+
+block content
+  #category
+    span category
+    div!= list_categories()
+  //-   h1= page.category
+  //-   - page.posts.each(function(article){
+  //-     .category-item
+  //-       a(href=url_for(article.path))= article.title
+  //-       time(datetime=date_xml(article.date))= date(article.date)
+  //-   - })
+  //- #paginator!= paginator()
