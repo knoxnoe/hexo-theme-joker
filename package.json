@@ -1,0 +1,17 @@
+{
+  "name": "hexo-theme-yry",
+  "version": "1.0.0",
+  "description": "hexo theme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@knoxnoe.github:knoxnoe/hexo-theme-yry.git"
+  },
+  "author": "noe",
+  "license": "ISC",
+  "dependencies": {
+    "nib": "^1.1.2"
+  }
+}

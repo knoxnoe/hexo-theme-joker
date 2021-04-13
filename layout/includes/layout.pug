@@ -20,27 +20,27 @@ html(lang=config.language)
     meta(charset='UTF-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
-    meta(name="description" content=Desc)
-    meta(name="keywords" content=Keywords)
-    mata(name="author" content=Author)
-    meta(name="copyright" content=Copyright)
     title= pageTitle
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
       //- stylesheets list from _config.yml
       each url in theme.stylesheets
         link(rel='stylesheet', href=url)
+    mata(name="author" content=Author)
+    meta(name="copyright" content=Copyright)
+    meta(name="description" content=Desc)
+    meta(name="keywords" content=Keywords)
   body
-    header
-      include header/header.pug
-    main
+    #header
+       include header/index.pug
+    #main
       #content-outer
-        #content-inner
+        content-inner
           if body
             div!= body
           else
             block content
-    footer
-      include footer/footer.pug
+    #footer
+      include footer/index.pug
     //- #bottom-outer
     //-   #bottom-inner
     //-     span Site construction by
@@ -51,7 +51,7 @@ html(lang=config.language)
     //-     span .
     //-     br
     //-     a(href=config.root) Home
-    if theme.scripts !== undefined && theme.scripts.length > 0
-      //- scripts list from config.yml
-      each url in theme.scripts
-        script(src=url)
+    //- if theme.scripts !== undefined && theme.scripts.length > 0
+    //-     //- scripts list from config.yml
+    //-   each url in theme.scripts
+    //-     script(src=url)

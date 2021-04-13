@@ -17,6 +17,9 @@ stylesheets:
 scripts:
   - /js/noe-theme.js
 
+logo:
+  imgurl: /img/logo.png
+
 # 总体的html页面meta配置
 desc: noe
 keywords: noe
