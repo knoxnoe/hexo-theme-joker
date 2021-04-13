@@ -1,5 +1,5 @@
 {
-  "name": "hexo-theme-yry",
+  "name": "hexo-theme-joker",
   "version": "1.0.0",
   "description": "hexo theme",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@knoxnoe.github:knoxnoe/hexo-theme-yry.git"
+    "url": "git@knoxnoe.github:knoxnoe/hexo-theme-joker.git"
   },
   "author": "noe",
   "license": "ISC",

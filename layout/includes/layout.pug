@@ -30,16 +30,16 @@ html(lang=config.language)
     meta(name="description" content=Desc)
     meta(name="keywords" content=Keywords)
   body
-    #header
+    header
        include header/index.pug
-    #main
+    main
       #content-outer
-        content-inner
+        #content-inner
           if body
             div!= body
           else
             block content
-    #footer
+    footer
       include footer/index.pug
     //- #bottom-outer
     //-   #bottom-inner
