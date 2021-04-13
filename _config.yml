@@ -11,11 +11,11 @@ menu:
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - /css/noe-theme.css
+  - /css/joker.css
 
 # scripts loaded in the end of the body
 scripts:
-  - /js/noe-theme.js
+  - /js/joker.js
 
 logo:
   imgurl: /img/logo.png
