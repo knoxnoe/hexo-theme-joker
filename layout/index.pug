@@ -1,9 +1,6 @@
 extends includes/layout.pug
 
 block content
-  include includes/recent-posts.pug
-  .category-title= _p('page.category')
-  span.tag-cloud-line -
-  span.tag-cloud-amount= site.tags.length
-  div!= list_categories()
-  #paginator!= paginator()
+  include includes/index/custom
+  include includes/index/recent-posts.pug
+  include includes/common/pagination.pug
