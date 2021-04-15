@@ -1,0 +1,20 @@
+.post
+  .title
+    a(href=url_for(index.path))= index.title
+  .time 
+    if index.date
+      .build
+        span 创建于
+        time(datetime=index.date.toJSON())= date(index.date, date_format)
+    if index.updated
+      .update 
+        span 更新于
+        time(datetime=index.updated.toJSON())= date(index.updated, date_format) 
+  if index.categories.length > 0
+    .categories
+      span 分类：
+      span= index.categories.data[0].name
+  if index.tags.length > 0
+    .tags 
+      span 标签：
+      span= index.tags.data[0].name
