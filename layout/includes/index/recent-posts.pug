@@ -1,8 +1,15 @@
+- var posts = page.posts.sort('date', -1).toArray() 
+- var cols = 3
+- var rows = (posts.length) / cols
 
-if page.posts.length > 0
-  #recent-posts
-    each post in page.posts.sort('date', -1).limit(5).toArray()
-      .recent-post-item
-        a(href=url_for(post.path))= post.title
-        if post.date
-          time(datetime=post.date.toJSON())= date(post.date, date_format)
+if posts.length > 0
+  #joker-posts
+    .recent-posts
+      - for (var i = 0; i < rows; i++)
+        .row
+          - for (var j = 0; j < cols; j++)
+            - var pwd = i * j + j 
+            if pwd < posts.length
+              .col
+                - var index = posts[i * j + j]
+                include post.pug
