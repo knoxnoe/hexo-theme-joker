@@ -1,20 +1,12 @@
 
 @import "nib"
 // nib reset style
-global-reset()
-a
-  color #000
-  text-decoration none
+// global-reset()
 
 // var.styl 要在所有自定义页面前引入
 @import "var"
+@import "global"
+@import "_hightlight/highlight.styl"
 @import "_layout/*"
-
-// global css
-body
-  margin 0
-  background-color #f4f4f4
-  font-family "PT Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size 1rem
-  line-height 1.5
-  color #000
+@import "_layout/_common/*"
+@import "_layout/_post/*"
