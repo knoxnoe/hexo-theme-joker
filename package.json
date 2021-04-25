@@ -12,6 +12,7 @@
   "author": "noe",
   "license": "ISC",
   "dependencies": {
+    "hexo-renderer-pug": "^1.0.0",
     "nib": "^1.1.2"
   }
 }

@@ -1,9 +1,10 @@
 extends includes/layout.pug
 
 block content
-  #category
+  #joker-category
+    h1 | 文章分类
     div!= list_categories()
-    - console.log(site.categories)
+    //- console.log(site.categories)
     //- - page.posts.each(function(article){
     //-   .category-item
     //-     a(href=url_for(article.path))= article.title
