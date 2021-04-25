@@ -39,8 +39,28 @@ blockquote
   padding: 0 0.6rem
   border-left: 0.2rem solid $blockquote-padding-color
   color: $blockquote-color
+  position: relative
+  &::before
+    content: ""
+    position: absolute
+    height: 100%
+    width: 2px
+    background-color: #000
+    left: 0
 
 #article
+  h1, h2, h3, h4, h5
+    position: relative
+    &::before
+      content: "&"
+      position: absolute
+      left: -3%
+
+  img
+    width: 70%
+    display: block
+    margin: 0 auto
+
   pre,
   code
     font-family: $code-font !important
@@ -66,14 +86,14 @@ blockquote
     position: relative
     border-radius: 1px
 
-    &:after
-      position: absolute
-      top: 0
-      z-index: 0
-      min-width: 100%
-      height: 1.4rem
-      background: darken($highlight-background, 5)
-      content: ""
+    // &:after
+    //   position: absolute
+    //   top: 0
+    //   z-index: 0
+    //   min-width: 100%
+    //   height: 1.4rem
+    //   background: darken($highlight-background, 5)
+    //   content: ""
 
     pre
       margin: 0
@@ -98,17 +118,17 @@ blockquote
     table
       position: relative
       margin: 0
-      width: auto
+      width: 100%
       border: none
 
-      &:after
-        position: absolute
-        top: -1.4rem
-        z-index: 0
-        width: 100%
-        height: 1.4rem
-        background: darken($highlight-background, 5)
-        content: ""
+      // &:after
+      //   position: absolute
+      //   top: -1.4rem
+      //   z-index: 0
+      //   width: 100%
+      //   height: 1.4rem
+      //   background: darken($highlight-background, 5)
+      //   content: ""
 
     td
       padding: 0
@@ -150,12 +170,16 @@ blockquote
         &:after
           top: -2.1rem
 
-    .gutter pre
-      padding-right: 0.5rem
-      padding-left: 0.5rem
-      background-color: $highlight-gutter.bg-color
-      color: $highlight-gutter.color
-      text-align: right
+    .gutter
+      
+      width: 30px
+
+      pre
+        padding-right: 0.5rem
+        padding-left: 0.5rem
+        background-color: $highlight-gutter.bg-color
+        color: red
+        text-align: right
 
     .code pre
       padding-right: 0.5rem
@@ -166,6 +190,8 @@ blockquote
     .line
       height: 1rem
 
+  
+  
   .gutter
     user-select: none
     -webkit-user-select: none
