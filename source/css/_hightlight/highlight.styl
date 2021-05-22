@@ -16,13 +16,15 @@ wordWrap = !hexo-config("rootConfig.highlight.line_number") && hexo-config("code
 
 // loopForLanguages()
 
+$hl-code-bg= #000
+
 Placeholder: $code-block
 $code-block
   overflow: auto
   margin: 1rem 0
   padding: 0
   padding-top: 1.4rem
-  background: $highlight-background
+  background: $hl-code-bg
   color: $highlight-foreground
   font-size: $code-font-size
   line-height: $line-height-code-block
@@ -48,13 +50,14 @@ blockquote
     background-color: #000
     left: 0
 
-#article
+#joker-post
   h1, h2, h3, h4, h5
     position: relative
     &::before
-      content: "&"
+      content: "#"
       position: absolute
       left: -3%
+      color red
 
   img
     width: 70%
@@ -78,7 +81,7 @@ blockquote
     code
       padding: 0
       background: none
-      color: $highlight-foreground
+      color: #000
       text-shadow: none
 
   .highlight
@@ -177,7 +180,7 @@ blockquote
       pre
         padding-right: 0.5rem
         padding-left: 0.5rem
-        background-color: $highlight-gutter.bg-color
+        background-color: $hl-code-bg
         color: red
         text-align: right
 
@@ -185,7 +188,8 @@ blockquote
       padding-right: 0.5rem
       padding-left: 0.5rem
       width: 100%
-      background-color: $highlight-background
+      background-color: $hl-code-bg
+      color white
 
     .line
       height: 1rem
