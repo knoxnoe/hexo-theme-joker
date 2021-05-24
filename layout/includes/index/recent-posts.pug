@@ -1,15 +1,9 @@
 - var posts = page.posts.sort('date', -1).toArray() 
-- var cols = 3
-- var rows = (posts.length) / cols
 
 if posts.length > 0
   #joker-posts
     .recent-posts
-      - for (var i = 0; i < rows; i++)
-        .row
-          - for (var j = 0; j < cols; j++)
-            - var pwd = i * j + j 
-            if pwd < posts.length
-              .col
-                - var index = posts[i * j + j]
-                include post.pug
+      - for (var i = 0; i < posts.length; i++)
+        .card-post
+          - var index = posts[i]
+          include post.pug

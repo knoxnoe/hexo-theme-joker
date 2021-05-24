@@ -1,11 +1,11 @@
 
-- var pageTitle = page.title || config.subtitle || ''
-- if (is_archive()) pageTitle = 'Archives'
-- if (is_tag()) pageTitle = 'Tag: ' + page.tag
-- if (is_category()) pageTitle = 'Category: ' + page.category
-- if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
-- if (is_year()) pageTitle += ': ' + page.year
-- pageTitle += ' [ ' + config.title + ' ]'
+- var siteTitle = page.title || config.subtitle || ''
+- if (is_archive()) siteTitle = 'Archives'
+- if (is_tag()) siteTitle = 'Tag: ' + page.tag
+- if (is_category()) siteTitle = 'Category: ' + page.category
+- if (is_month()) siteTitle += ': ' + page.month + '/' + page.year
+- if (is_year()) siteTitle += ': ' + page.year
+- siteTitle += ' [ ' + config.title + ' ]'
 
 - var Desc = page.description || page.title || config.description || theme.desc ||''
 - var Keywords = (config.keywords || []).join(',')
@@ -20,7 +20,9 @@ html(lang=config.language)
     meta(charset='UTF-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
-    title= pageTitle
+    <link href="favicon.ico" rel="shortcut icon" type="image/ico">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    title= siteTitle
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
       //- stylesheets list from _config.yml
       each url in theme.stylesheets
@@ -51,7 +53,7 @@ html(lang=config.language)
     //-     span .
     //-     br
     //-     a(href=config.root) Home
-    //- if theme.scripts !== undefined && theme.scripts.length > 0
-    //-     //- scripts list from config.yml
-    //-   each url in theme.scripts
-    //-     script(src=url)
+    if theme.scripts !== undefined && theme.scripts.length > 0
+      //- scripts list from config.yml
+      each url in theme.scripts
+        script(src=url type='module')
