@@ -1,17 +1,19 @@
 #pagination
   text-align center
-  height 80px
-
+  margin 30px auto
+  cursor pointer
+  
   .pagination
-    line-height 80px
     margin 0 auto
-    width 30%
+    width 50%
 
     .page-number
+      font-size 1rem
       color #fff
-      display inline-block
-      width 30px
-      height 30px
-      line-height 30px
-      background-color #999
-      margin 5px
+      padding 0.3em 0.5em;
+      background-color #F57C00
+      margin 0 0.5em
+      border-radius 50%
+
+      &.current
+        padding 0.5em 0.7em;
