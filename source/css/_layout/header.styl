@@ -21,13 +21,45 @@ header
         height 100%
     
     #header-nav
-      min-width 400px
-      display flex
-      justify-content space-between
-      line-height 86px
+      .menu-list
+        min-width 400px
+        display flex
+        justify-content space-between
+        line-height 86px
 
     @media screen and (max-width: 600px)
       #header-nav
-        display none
+        #menu
+          display flex
+          flex-direction column
+          justify-content space-evenly
+          width 50px
+          height 40px
+          margin-top 23px
+          border 1px solid #ddd
+          .line
+            width 40px
+            height 3px
+            margin 0 auto
+            background-color #000
+
+        .menu-list
+          font-size 1rem
+          min-width 50px
+          flex-direction column
+          position absolute
+          line-height 2em
+          
+          background-color red
+          right 30px
+          top 70px
+          z-index 999
+          transition 3s
+          display none
+          padding 1em
+
+          &.menu-list-show
+            display flex
+            
 
 
