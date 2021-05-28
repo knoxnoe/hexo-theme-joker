@@ -56,7 +56,7 @@ $hl-code-bg= #BDBDBD
     &::before
       content: "#"
       position: absolute
-      left: -3%
+      left: -1.2rem
       color red
 
   img
@@ -64,9 +64,20 @@ $hl-code-bg= #BDBDBD
     display: block
     margin: 0 auto
 
-  figure
+  pre
     background-color $hl-code-bg
+    margin-block-start 0
+    margin-block-end 0
+    margin-inline-start 0
+    margin-inline-end 0
+    width 100%
+    overflow hidden
+    overflow-x overlay
 
+  a
+    text-decoration underline
+    &:hover
+      color red
   // pre,
   // code
   //   font-family: $code-font !important
