@@ -1,7 +1,14 @@
 extends includes/layout.pug
 
 block content
-  article#joker-post
-    p.title= page.title
-    != page.content
+  
+  #joker-post
+    .post-head
+      p.post-title= page.title
+    #joker-post-main
+      article#joker-article
+        != page.content
+      #joker-right
+        .sidebar-toc!= toc(page.content)
+
   #paginator!= paginator()
