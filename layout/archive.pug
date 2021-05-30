@@ -1,28 +1,39 @@
-
 extends includes/layout.pug
 
+  
 block content
-  - var tagsList = list_tags({ show_count: true })
+  - var tagsList = list_tags({ show_count: true, style: false, separator: '' })
+  - var cateList = list_categories({ show_count: true, style: false, separator: '' })
   - var archivesList = list_archives()
+  - var p = page.posts.sort('date', -1)
   - var latest = page.posts.length > 0 ? page.posts.toArray()[0].date : {data: 'latest'}
   //- console.log(page.posts.toArray()[0].date)
   #joker-archive
-    aside
-      h2 Archives
-      if archivesList
-        != archivesList
-      else
-        p None.
-        
-    h1= date(latest)
+    #joker-tags
+      a(href="/archives")
+        !="Show All"
+        span!= site.posts.length
+      if tagsList
+        != tagsList
+    #joker-category
+      if cateList
+        != cateList
+    #joker-posts-list
+      - p.each(function(article, index){
+        - var curdate = date(article.date, 'YYYY')
+        - var prevdate = (!!article.prev) ? date(article.prev.date, 'YYYY') : date(article.date, 'YYYY')
+        - var d = prevdate > curdate ? prevdate : false
 
-    - page.posts.each(function(article){
-      .archive-list-item
-        a(href=url_for(article.path))= article.title
-        time(datetime=date_xml(article.date))= date(article.date)
-    - })
+        - if(!article.prev || d)
+          h1!= date(article.date, 'YYYY')
+        .archive-list-item
+          .list
+            a(href=url_for(article.path))= article.title
+          .time
+            time(datetime=date_xml(article.date))= date(article.date)
+      - })
 
-    include includes/common/pagination.pug
+    //- include includes/common/pagination.pug
 
     
 

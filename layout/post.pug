@@ -9,6 +9,6 @@ block content
       article#joker-article
         != page.content
       #joker-right
-        .sidebar-toc!= toc(page.content)
+        .sidebar-toc!= toc(page.content, {list_number: false, max_depth: 3, min_depth: 2})
 
   #paginator!= paginator()
