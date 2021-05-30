@@ -6,7 +6,7 @@ menu:
   Home: /
   About: /about
   Archives: /archives
-  Categories: /categories
+  # Categories: /categories
   # Tags: /tags
 
 # stylesheets loaded in the <head>
@@ -28,4 +28,8 @@ keywords: noe
 author: noe
 copyright: noe
 
+# 人生格言
+motto: 人外有人，天外有天
+
+# 主题
 highlight_theme: default
