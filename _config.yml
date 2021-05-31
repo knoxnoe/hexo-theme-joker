@@ -19,17 +19,39 @@ scripts:
   - /js/event.js
   - /js/joker.js
 
+cdn:
+  css:
+    fontawesome: https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css
+    cc:
+  js:
+    jqury: https://code.jquery.com/jquery-3.3.1.slim.min.js
+
 logo:
   imgurl: /img/logo.png
-
-# 总体的html页面meta配置
-desc: noe
-keywords: noe
-author: noe
-copyright: noe
 
 # 人生格言
 motto: 人外有人，天外有天
 
 # 主题
 highlight_theme: default
+
+# favicon
+favicon: /favicon.ico
+
+# 社交图标
+
+# info settings
+avatar:
+
+social_icon:
+  twitter: xx
+  github: xx
+  weibo: xx
+  weixin: xx
+  qq: xx
+
+info:
+  desc: noe
+  keywords: noe
+  author: noe
+  copyright: noe
