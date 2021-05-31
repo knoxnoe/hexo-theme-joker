@@ -24,13 +24,12 @@ html(lang=config.language)
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     title= siteTitle
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-      //- stylesheets list from _config.yml
       each url in theme.stylesheets
         link(rel='stylesheet', href=url)
-    mata(name="author" content=Author)
-    meta(name="copyright" content=Copyright)
-    meta(name="description" content=Desc)
-    meta(name="keywords" content=Keywords)
+    if theme.cdn.css !== undefined
+      each url in theme.cdn.css
+        if url !== null
+          link(rel='stylesheet', href=url)
   body
     header
        include header/index.pug
@@ -43,16 +42,6 @@ html(lang=config.language)
             block content
     footer
       include footer/index.pug
-    //- #bottom-outer
-    //-   #bottom-inner
-    //-     span Site construction by
-    //-     span= ' ' + config.author + ' '
-    //-     span using
-    //-     a(href='http://hexo.io')
-    //-       span hexo blog framework
-    //-     span .
-    //-     br
-    //-     a(href=config.root) Home
     if theme.scripts !== undefined && theme.scripts.length > 0
       //- scripts list from config.yml
       each url in theme.scripts
