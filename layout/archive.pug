@@ -2,12 +2,13 @@ extends includes/layout.pug
 
   
 block content
+  include ./includes/mixins/index.pug
   - var tagsList = list_tags({ show_count: true, style: false, separator: '' })
   - var cateList = list_categories({ show_count: true, style: false, separator: '' })
   - var archivesList = list_archives()
   - var p = page.posts.sort('date', -1)
   - var latest = page.posts.length > 0 ? page.posts.toArray()[0].date : {data: 'latest'}
-  //- console.log(page.posts.toArray()[0].date)
+
   #joker-archive
     #joker-tags
       a(href="/archives")
@@ -24,13 +25,9 @@ block content
         - var prevdate = (!!article.prev) ? date(article.prev.date, 'YYYY') : date(article.date, 'YYYY')
         - var d = prevdate > curdate ? prevdate : false
 
-        - if(!article.prev || d)
+        - if(!index || d)
           h1!= date(article.date, 'YYYY')
-        .archive-list-item
-          .list
-            a(href=url_for(article.path))= article.title
-          .time
-            time(datetime=date_xml(article.date))= date(article.date)
+        + articleListItem(article)
       - })
 
     //- include includes/common/pagination.pug

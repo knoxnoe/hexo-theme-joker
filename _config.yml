@@ -29,9 +29,6 @@ cdn:
 logo:
   imgurl: /img/logo.png
 
-# 人生格言
-motto: 人外有人，天外有天
-
 # 主题
 highlight_theme: default
 
@@ -40,9 +37,6 @@ favicon: /favicon.ico
 
 # 社交图标
 
-# info settings
-avatar:
-
 social_icon:
   twitter: xx
   github: xx
@@ -50,8 +44,25 @@ social_icon:
   weixin: xx
   qq: xx
 
-info:
+site-info:
   desc: noe
   keywords: noe
   author: noe
   copyright: noe
+
+# 多用于about页面
+authorInfo:
+  avatar:
+  selfIntro: 何海洋，1998，男。一名坚定的共产主义拥护者。2020年毕业于中国石油大学（华东）软件工程专业。对于软件工程开发有极高的自我认知，精通Java、JavaScript、C++等多门编程语言。喜欢研究编译原理、计算机网络等方便的编程技巧。同时也是多项开源社区的核心代码的领导者和布道者。
+  # 人生格言
+  motto: 人外有人，天外有天
+
+# about页面配置slot
+slots:
+  - slot:
+      title: 123
+      lists:
+        - link: xxx
+  - slot:
+      title: 234
+      lists:
