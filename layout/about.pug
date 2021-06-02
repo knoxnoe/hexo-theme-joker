@@ -1,7 +1,33 @@
 extends includes/layout.pug
 
 block content
+  include ./includes/mixins/index.pug
+  - var tagsList = list_tags({ show_count: true, style: false, separator: '' })
+  - var cateList = list_categories({ show_count: true, style: false, separator: '' })
+  - var slefIntro = theme.authorInfo.selfIntro
   #joker-about
     h1 | About
-    .name
-      h2 noe
+    .about-main
+      .left-context 
+        .intro
+          h2 | 自我介绍
+          p!= slefIntro
+        .custom
+          h2 | 扩展slot
+          .custom-list
+        .custom
+          h2 | 置顶文章
+          .custom-list
+            - site.posts.each(function(article, index) {
+              if(!!article.top)
+                + articleListItem(article)
+            - })
+      .right-context 
+        .tag
+          .tags
+            if tagsList
+              != tagsList
+          .categories
+            if cateList
+              != cateList
+

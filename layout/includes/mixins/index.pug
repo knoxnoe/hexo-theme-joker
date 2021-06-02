@@ -1,0 +1,8 @@
+mixin articleListItem(article)
+  .article-list-item
+    .title
+      a(href=url_for(article.path))= article.title
+      - if(!!article.top)
+        span!= "置顶"
+    .time
+      time(datetime=date_xml(article.date))= date(article.date)
