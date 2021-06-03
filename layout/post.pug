@@ -8,7 +8,7 @@ block content
     #joker-post-main
       article#joker-article
         != page.content
-      #joker-right
-        .sidebar-toc!= toc(page.content, {list_number: false, max_depth: 3, min_depth: 2})
+      #joker-toc
+        .sidebar-toc!= toc(page.content, {list_number: false, max_depth: 2, min_depth: 1})
 
   #paginator!= paginator()

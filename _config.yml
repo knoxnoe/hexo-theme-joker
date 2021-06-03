@@ -15,7 +15,7 @@ stylesheets:
 
 # scripts loaded in the end of the body
 scripts:
-  - /js/utils.js
+  # - /js/utils.js
   - /js/event.js
   - /js/joker.js
 
