@@ -37,14 +37,14 @@ favicon: /favicon.ico
 
 # 社交图标
 
-social_icon:
+socialIcon:
   twitter: xx
   github: xx
   weibo: xx
   weixin: xx
   qq: xx
 
-site-info:
+siteInfo:
   desc: noe
   keywords: noe
   author: noe
@@ -66,3 +66,10 @@ slots:
   - slot:
       title: 234
       lists:
+
+# comment
+# disqus
+disqus:
+  enable: true
+  shortname: hexo-theme-joker
+  #count:

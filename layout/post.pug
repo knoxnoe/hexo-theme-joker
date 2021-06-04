@@ -1,14 +1,14 @@
 extends includes/layout.pug
 
 block content
-  
   #joker-post
     .post-head
       p.post-title= page.title
     #joker-post-main
       article#joker-article
         != page.content
+        include includes/unjoker/comments/index.pug
       #joker-toc
         .sidebar-toc!= toc(page.content, {list_number: false, max_depth: 2, min_depth: 1})
-
-  #paginator!= paginator()
+    
+  //- #paginator!= paginator()

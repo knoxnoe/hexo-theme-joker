@@ -6,3 +6,12 @@ mixin articleListItem(article)
         span!= "置顶"
     .time
       time(datetime=date_xml(article.date))= date(article.date)
+
+- const socialLink = theme.socialIcon
+mixin socialIcon()
+  ul.socialIcon
+      each val, key in socialLink
+        if(val !== null)
+          li
+            a(href=val) 
+              i.fa(class='fa-' + key aria-hidden="true")

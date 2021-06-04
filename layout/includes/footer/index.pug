@@ -1,14 +1,13 @@
-- const socialLink = theme.social_icon
+include ../mixins/index.pug
+- let copyright = theme.siteInfo.copyright || "hexo"
+- let author = theme.siteInfo.author || "noe"
+
 #joker-footer
-  ul.social
-    each val, key in socialLink
-      if(val !== null)
-        li
-          a(href=val) 
-            i.fa(class='fa-' + key aria-hidden="true")
+  .social
+    + socialIcon()
   .info
-    p="Copyright © Blog 2021"
-    p="Powered by Blog" 
+    p="Copyright © " + copyright + " 2021"
+    p="Powered by " + author 
   //- - for(let key in socialLink) {
   //-     if(socialLink[key] !== null)
   //-       li

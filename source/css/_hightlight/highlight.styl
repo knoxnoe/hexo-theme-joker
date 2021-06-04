@@ -25,7 +25,7 @@ $hl-code-keyword= #03A9F4
 $hl-code-title= #4CAF50
 $hl-code-builtin-keyword= #F44336
 $hl-code-number= #673AB7
-
+$hl-blockquote-gb= #FFC107
 
 // Placeholder: $code-block
 // $code-block
@@ -63,6 +63,7 @@ $hl-code-number= #673AB7
   h1, h2, h3, h4, h5
     position: relative
     cursor pointer
+    line-height 2
     &::before
       content: "#"
       position: absolute
@@ -78,7 +79,8 @@ $hl-code-number= #673AB7
     width: 70%
     display: block
     margin: 0 auto
-
+  p
+    text-indent 2em
   a
     &:hover
       color red
@@ -87,20 +89,34 @@ $hl-code-number= #673AB7
 
   // highlight
   figure
-    background-color $hl-code-bg
     margin-block-start 0
     margin-block-end 0
     margin-inline-start 0
     margin-inline-end 0
-    width 100%
+    background-color $hl-code-bg
+    padding 1.5em 1.5em 1.5em 0.5em
+    margin 10px auto
+    width 90%
     overflow hidden
     overflow-x auto
     border-radius 0.5em
 
+    .gutter
+      color #fff
+      .line
+        line-height 1.5
     .code
       color $hl-code-color
-
+      display inline-block
+      margin-left 1em
+      span
+        word-spacing 2px
+      .params,.string,.title
+        padding 0 3px
       .line
+        line-height 1.5
+        .comment
+          font-size 0.8em
         .function
           .title
             color $hl-code-title
@@ -114,81 +130,89 @@ $hl-code-number= #673AB7
         .number
           color $hl-code-number
   blockquote
+    width 85%
+    margin 30px auto
+    padding 0 30px
     border-left 5px solid #eee
     font-style italic
+    background-color $hl-blockquote-gb
+    min-height 70px
+    overflow hidden
+    p
+      margin-top 15px
 
   .highlight .hll {
-      background: #282c34
+    background: #282c34
   }
 
   .highlight .c {
-      color: #5c6370;
-      font-style: italic
+    color: #5c6370;
+    font-style: italic
   }
 
   .highlight .err {
-      color: #960050;
-      background-color: #1e0010
+    color: #960050;
+    background-color: #1e0010
   }
 
   .language-coq .highlight .err {
-      background-color: transparent
+    background-color: transparent
   }
 
   .highlight .k,.language-coq .highlight .err {
-      color: #c678dd
+    color: #c678dd
   }
 
   .highlight .l {
-      color: #98c379
+    color: #98c379
   }
 
   .highlight .n {
-      color: #abb2bf
+    color: #abb2bf
   }
 
   .highlight .o {
-      color: #abb2bf
+    color: #abb2bf
   }
 
   .highlight .p {
-      color: #abb2bf
+    color: #abb2bf
   }
 
   .highlight .cm {
-      color: #5c6370;
-      font-style: italic
+    color: #5c6370;
+    font-style: italic
   }
 
   .highlight .cp {
-      color: #5c6370;
-      font-style: italic
+    color: #5c6370;
+    font-style: italic
   }
 
   .highlight .c1 {
-      color: #5c6370;
-      font-style: italic
+    color: #5c6370;
+    font-style: italic
   }
 
   .highlight .cs {
-      color: #5c6370;
-      font-style: italic
+    color: #5c6370;
+    font-style: italic
   }
 
   .highlight .ge {
-      font-style: italic
+    font-style: italic
   }
 
   .highlight .gs {
-      font-weight: 700
+    font-weight: 700
   }
 
   .highlight .kc {
-      color: #c678dd
+    color: #c678dd
   }
 
   .highlight .kd {
-      color: #c678dd
+    color: #c678dd
   }
 
   .highlight .kn {
