@@ -24,11 +24,5 @@ block content
             - })
         include includes/unjoker/comments/index.pug
       .right-context 
-        .tag
-          .tags
-            if tagsList
-              != tagsList
-          .categories
-            if cateList
-              != cateList
+        include includes/common/label.pug
 

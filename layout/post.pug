@@ -21,6 +21,18 @@ block content
               
         include includes/unjoker/comments/index.pug
       #joker-toc
+        .label
+          ul.tags
+            each tag in page.tags.data
+              li
+                a(href=url_for(tag.path)) 
+                  span!= tag.name
+          ul.categories
+            each category in page.categories.data
+              li
+                a(href=url_for(category.path)) 
+                  span!= category.name
+
         .sidebar-toc!= toc(page.content, {list_number: false, max_depth: 2, min_depth: 1})
     
   //- #paginator!= paginator()
