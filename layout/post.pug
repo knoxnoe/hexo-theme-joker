@@ -7,6 +7,18 @@ block content
     #joker-post-main
       article#joker-article
         != page.content
+        #joker-prev-next
+          - const prevLink = page.prev ? page.prev.path : "#"
+          - const nextLink = page.next ? page.next.path : "#"
+          .prev
+            a.previous(href=url_for(prevLink))
+              i.fa.fa-arrow-left(aria-hidden="true")
+              span!= 'Preivous'
+          .next
+            a.following(href=url_for(nextLink))
+              span!= 'Following'
+              i.fa.fa-arrow-right(aria-hidden="true")
+              
         include includes/unjoker/comments/index.pug
       #joker-toc
         .sidebar-toc!= toc(page.content, {list_number: false, max_depth: 2, min_depth: 1})
