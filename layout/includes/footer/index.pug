@@ -3,6 +3,7 @@ include ../mixins/index.pug
 - let author = theme.siteInfo.author || "noe"
 
 #joker-footer
+  include ../common/backToTop.pug
   .social
     + socialIcon()
   .info
