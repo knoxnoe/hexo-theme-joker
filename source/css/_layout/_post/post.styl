@@ -72,19 +72,23 @@
           display flex
           justify-content flex-start
           flex-wrap wrap
-        a
-          border: 1px solid rgba(255,255,255,.8)
-          border-color #bfbfbf
-          border-radius 999em
-          color #bfbfbf
-          padding 0 .8em
-          line-height: 2em
-          font-size 0.8rem
-          text-decoration: none
-          margin-left 1em
-          margin-bottom .8em
-          cursor: pointer
+          li
+            margin 0.25em 0
+            a
+              border: 1px solid rgba(255,255,255,.8)
+              border-color #bfbfbf
+              border-radius 999em
+              color #bfbfbf
+              padding 0.2em .8em
+              line-height: 2em
+              font-size 0.8rem
+              text-decoration: none
+              margin 0 0.5em
+              cursor: pointer
+              &:hover
+                 background-color #ddd
       .sidebar-toc
+        margin-top 30px
         li
           overflow hidden
           white-space nowrap

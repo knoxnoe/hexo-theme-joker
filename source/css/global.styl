@@ -41,3 +41,21 @@ a
 main
   min-height 100vh
   margin-top 100px
+
+
+// 滚动条设置，兼容性未测试
+::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+  background-color $theme-scroll-bg
+}
+::-webkit-scrollbar {//滚动条的宽度
+  width:9px;
+  height:9px;
+}
+::-webkit-scrollbar-thumb {//滚动条的设置
+  background-color $theme-scroll-color
+  background-clip:padding-box;
+  min-height:28px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color $theme-scroll-hover
+}
