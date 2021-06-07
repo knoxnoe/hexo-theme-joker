@@ -59,13 +59,22 @@ authorInfo:
 
 # about页面配置slot
 slots:
-  - slot:
-      title: 123
-      lists:
-        - link: xxx
-  - slot:
-      title: 234
-      lists:
+  - title: Projects
+    lists:
+      - title: title1, 对激光的的展示
+        url: https://blog.csdn.net/weixin_39532754/article/details/110609203
+      - title: title1, 对激光的的展示
+        url: https://blog.csdn.net/weixin_39532754/article/details/110609203
+      - title: title1, 对激光的的展示
+        url: https://blog.csdn.net/weixin_39532754/article/details/110609203
+  - title: Year Reviews
+    lists:
+      - title: title1, 对激光的的展示
+        url: https://blog.csdn.net/weixin_39532754/article/details/110609203
+      - title: title1, 对激光的的展示
+        url: https://blog.csdn.net/weixin_39532754/article/details/110609203
+      - title: title1, 对激光的的展示
+        url: https://blog.csdn.net/weixin_39532754/article/details/110609203
 
 # comment
 # disqus
