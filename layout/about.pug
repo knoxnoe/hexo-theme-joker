@@ -5,19 +5,23 @@ block content
   - var tagsList = list_tags({ show_count: true, style: false, separator: '' })
   - var cateList = list_categories({ show_count: true, style: false, separator: '' })
   - var slefIntro = theme.authorInfo.selfIntro
+
   #joker-about
-    h1 | About
     .about-main
       .left-context 
         .intro
-          h2 | 自我介绍
-          p!= slefIntro
-        //- .custom
-        //-   h2 | 扩展slot
-        //-   .custom-list
+          h2 | About Me
+          .intro-main
+            p!= slefIntro
         .custom
+          each slot in theme.slots
+            .custom-slot
+              h2!= "| " + slot.title
+              .custom-lists(class=slot.title)
+                + jokerList(slot.lists)
+        .topK
           h2 | 置顶文章
-          .custom-list
+          .topk-list
             - site.posts.each(function(article, index) {
               if(!!article.top)
                 + articleListItem(article)

@@ -15,3 +15,10 @@ mixin socialIcon()
           li
             a(href=val) 
               i.fa(class='fa-' + key aria-hidden="true")
+
+mixin jokerList(lists)
+  ul.joker-custom-list
+    each list, index in lists
+      li
+        a(href=list.url)
+          span!= list.title
