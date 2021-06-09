@@ -20,19 +20,18 @@ html(lang=config.language)
     meta(charset='UTF-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="description" content="noe")
+    meta(name="keywords" content="noe")
+    meta(name="author" content="noe")
+    meta(name="copyright" content="noe")
     <link href="favicon.ico" rel="shortcut icon" type="image/ico">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     title= siteTitle
-    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-      each url in theme.stylesheets
-        link(rel='stylesheet', href=url)
-    if theme.cdn.css !== undefined
-      each url in theme.cdn.css
-        if url !== null
-          link(rel='stylesheet', href=url)
+    //- assets
+    include assets/top.pug
+    include config/config.pug
   body
     header
-       include header/index.pug
+      include header/index.pug
     main
       .content-outer
         .content-inner
@@ -42,7 +41,5 @@ html(lang=config.language)
             block content
     footer
       include footer/index.pug
-    if theme.scripts !== undefined && theme.scripts.length > 0
-      //- scripts list from config.yml
-      each url in theme.scripts
-        script(src=url type='module')
+    //- assets
+    include assets/bottom.pug

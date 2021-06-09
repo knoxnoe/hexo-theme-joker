@@ -1,21 +1,24 @@
 .font-post.post
   .title
-    a(href=url_for(index.path))= index.title
+    a(href=url_for(post.path))= post.title
+  if post.summary
+    .summary
+      p!=post.summary
 .back-post.post
   .time 
-    if index.date
+    if post.date
       .build
-        span 创建于
-        time(datetime=index.date.toJSON())= date(index.date, date_format)
-    if index.updated
+        i.fa.fa-clock-o
+        time(datetime=post.date.toJSON())= date(post.date, date_format)
+    if post.updated
       .update 
-        span 更新于
-        time(datetime=index.updated.toJSON())= date(index.updated, date_format) 
-  if index.categories.length > 0
+        i.fa.fa-clock-o
+        time(datetime=post.updated.toJSON())= date(post.updated, date_format) 
+  if post.categories.length > 0
     .categories
-      span 分类：
-      span= index.categories.data[0].name
-  if index.tags.length > 0
+      i.fa.fa-folder-open
+      span= post.categories.data[0].name
+  if post.tags.length > 0
     .tags 
-      span 标签：
-      span= index.tags.data[0].name
+      i.fa.fa-tags
+      span= post.tags.data[0].name

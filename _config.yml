@@ -25,6 +25,7 @@ cdn:
     cc:
   js:
     jqury: https://code.jquery.com/jquery-3.3.1.slim.min.js
+    velocity: https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js
 
 logo:
   imgurl: /img/logo.png
@@ -82,3 +83,13 @@ disqus:
   enable: true
   shortname: hexo-theme-joker
   #count:
+
+# search
+# Algolia search
+algolia_search:
+  enable: true
+  hits:
+    per_page: 5
+
+# RSS
+rss: /atom.xml
