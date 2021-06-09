@@ -1,0 +1,21 @@
+if theme.cdn.css !== undefined
+  each url in theme.cdn.css
+    if url !== null
+      link(rel='stylesheet', href=url)
+if theme.cdn.js !== undefined
+  each url in theme.cdn.js
+    if url !== null
+      script(src=url)
+
+
+if theme.algolia_search.enable
+  link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css")
+  link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css")
+  script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4")
+
+
+
+
+if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+  each url in theme.stylesheets
+    link(rel='stylesheet', href=url)

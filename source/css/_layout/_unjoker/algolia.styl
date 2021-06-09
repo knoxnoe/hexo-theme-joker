@@ -1,0 +1,26 @@
+#joker-algolia-search
+  display flex
+
+  #joker-algolia-panel
+    width 0
+    position relative
+    input
+      width 0
+      padding 0
+      border none
+    #joker-algolia-search-results
+      position absolute
+      z-index 999
+      background-color #fff
+      height 400px
+      overflow-y auto
+  #joker-mask
+    position absolute
+    height calc(100vh - 86px)
+    width calc(100vw - 9px)
+    display none
+    top 86px
+    left 0
+    background-color #000
+    opacity 0.5 !important
+    z-index 998
