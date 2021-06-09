@@ -12,10 +12,10 @@ mixin socialIcon()
   ul.socialIcon
       each val, key in socialLink
         if(val !== null)
-          li
+          li(id=key)
             a(href=val) 
               i.fa(class='fa-' + key aria-hidden="true")
-
+              !=key
 mixin jokerList(lists)
   ul.joker-custom-list
     each list, index in lists

@@ -12,17 +12,42 @@
 
 
 ul.socialIcon
-  display flex
-  width 35%
   margin 0 auto
   padding 0
-  justify-content space-evenly
-  font-size 1.8rem
   li
+    display inline-block
     list-style none
-
+    cursor: pointer;
+    color #fff
+    border-radius 8px
+    padding .4em .5em
+    margin-right .8em
+    line-height 1.5
+    margin-top 10px
+    &#twitter
+      background-color #01aced
+      &:hover
+        background-color #448AFF
+    &#github
+      background-color #343a40
+      &:hover
+        background-color #000
+    &#qq
+      background-color #343a40
+      &:hover
+        background-color #000
+    &#weixin
+      background-color #4CAF50
+      &:hover
+        background-color #388E3C
+    &#weibo
+      background-color #FFC107
+      &:hover
+        background-color #FFA000
+    a
+      color #fff
     i.fa
-      opacity 0.6
-
+      color #fff
+      margin-right .6em
       &:hover
         opacity 1
