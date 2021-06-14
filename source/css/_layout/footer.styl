@@ -4,10 +4,28 @@ footer
   text-align center
 
   #joker-footer
-    padding 30px 20%
     display flex
     justify-content space-between
 
     .social
       width 70%
-  
+      margin-bottom 15px
+
+    .info
+      color #777
+      margin 15px 0 15px
+
+  // 手机
+  @media screen and (max-width: 600px)
+    #joker-footer
+      flex-direction column
+      .social
+        margin 0 auto
+
+  @media screen and (min-width: 960px)
+    #joker-footer
+      padding 30px 20%
+
+  @media screen and (min-width: 601px) and (max-width: 959px)
+    #joker-footer
+      padding 30px 20%

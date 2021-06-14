@@ -1,22 +1,35 @@
 'use strict';
 
 // 防抖
-function debounce(fn, delay) {
-  let timer = null;
-  return function() {
-    let ctx = this;
-    let args = arguments;
-    let later = function() {
-      timer = null;
-      fn.apply(ctx, args);
+function debounce(fn, delay=100, immediate=true) {
+  let timer = null, ctx, args;
+
+  let later = () => setTimeout(() => {
+    timer = null;
+    if(!immediate) {
+      fn.apply(ctx, args)
+      ctx = args = null;
     }
-    clearTimeout(timer);
-    timer = setTimeout(later, delay);
+  }, delay);
+
+  return function() {
+    if(!timer) {
+      timer = later();
+      if(immediate) {
+        fn.apply(ctx, arguments)
+      }else {
+        ctx = this
+        args = arguments
+      }
+    }else {
+      clearTimeout(timer);
+      timer = later();
+    }
   }
 }
 
 // 限流
-function throttle(fn, delay) {
+function throttle(fn, delay=100) {
   let timer = null;
   let preTimer = new Date()
   return function() {
@@ -26,7 +39,7 @@ function throttle(fn, delay) {
     clearTimeout(timer);
     if(curTimer - preTimer >= delay) {
       preTimer = curTimer;
-      setTimeout(later, delay);
+      timer = setTimeout(fn, delay);
     }
   }
 }

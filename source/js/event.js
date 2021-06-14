@@ -1,4 +1,13 @@
-import { debounce } from './utils.js';
+import { debounce } from './utils/utils.js';
+import { setToc } from './features/toc.js'
+import showBackToTop from './features/backToTop.js'
+import { getPageScroll } from './utils/utils.js'
+
+window.onscroll = function() {
+  let {y} = getPageScroll()
+  setToc(y)
+  showBackToTop(y)
+}
 
 /*首页文章卡片翻转*/
 $('.font-post').each(function(index) {
@@ -7,7 +16,7 @@ $('.font-post').each(function(index) {
     $(this).parent('.card-post').removeClass().addClass('card-post rotatepost')
   }
   
-  $(this).on('click', debounce(handle, 600))
+  $(this).on('click', debounce(handle, 1500))
 })
 
 $('.back-post').each(function(index) {
@@ -15,7 +24,7 @@ $('.back-post').each(function(index) {
   const handle = () => {
     $(this).parent('.card-post').removeClass().addClass('card-post')
   }
-  $(this).on('click', debounce(handle, 600))
+  $(this).on('click', debounce(handle, 1500))
 })
 
 

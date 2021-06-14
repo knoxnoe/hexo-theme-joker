@@ -1,5 +1,8 @@
-- var logo_img = theme.logo.imgurl
+- const logo_img = theme.logo.imgurl
+- const logo_text = theme.logo.text
 
 #header-logo
-  if logo_img !== false
+  if logo_img
     img.logo-img(src=logo_img)
+  if logo_text
+    .logo_text!= logo_text

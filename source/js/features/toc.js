@@ -1,4 +1,4 @@
-import { getPageScroll } from '../utils.js'
+import { getPageScroll } from '../utils/utils.js'
 
 function setToc(scrolly) {
   let inialTop = 550

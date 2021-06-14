@@ -17,8 +17,12 @@
   if post.categories.length > 0
     .categories
       i.fa.fa-folder-open
-      span= post.categories.data[0].name
+      each categorie in post.categories.data
+        a(href=categorie.path) 
+          != categorie.name
   if post.tags.length > 0
     .tags 
       i.fa.fa-tags
-      span= post.tags.data[0].name
+      each tag in post.tags.data
+        a(href=tag.path) 
+          != tag.name
