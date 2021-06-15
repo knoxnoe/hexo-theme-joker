@@ -1,9 +1,11 @@
+- const title = post.title || 'joker 也不是无所不知！'
+- const summary = post.summary || post.content.match(/<(p)>([\s\S]*?)(<[\w]+ [\s\S]*?>|<\/\1>)/i)[2] || "Read More"
 .font-post.post
   .title
-    a(href=url_for(post.path))= post.title
-  if post.summary
-    .summary
-      p!=post.summary
+    a(href=url_for(post.link || post.path))= title
+  .summary
+    p
+      a(href=url_for(post.path))= summary
 .back-post.post
   .time 
     if post.date

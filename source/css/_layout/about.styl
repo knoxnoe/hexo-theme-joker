@@ -24,11 +24,24 @@
     .right-context 
       width 22%
       #joker-profile
-        .info
+        .profile
           font-size 0.8rem
           color #ddd
           img
-            width 100%  
+            width 100%
+        .friends
+          margin 20px 0
+          .title
+            color #FF9800
+          ul
+            display flex
+            li
+              a
+                padding 0.4em
+                color #ddd
+                &:hover
+                  color #FF9800
+                  text-decoration underline
 
   @media screen and (max-width: 600px)
     .about-main

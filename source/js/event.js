@@ -16,7 +16,7 @@ $('.font-post').each(function(index) {
     $(this).parent('.card-post').removeClass().addClass('card-post rotatepost')
   }
   
-  $(this).on('click', debounce(handle, 1500))
+  $(this).on('click', debounce(handle, 1000, false))
 })
 
 $('.back-post').each(function(index) {
@@ -24,7 +24,7 @@ $('.back-post').each(function(index) {
   const handle = () => {
     $(this).parent('.card-post').removeClass().addClass('card-post')
   }
-  $(this).on('click', debounce(handle, 1500))
+  $(this).on('click', debounce(handle, 1000, false))
 })
 
 

@@ -8,6 +8,7 @@ block content
   - const avatorUrl = theme.blogInfo.profile.avatar
   - const name = theme.blogInfo.profile.author
   - const profile = theme.blogInfo.profile
+  - const friends = theme.blogInfo.friends
   #joker-about
     .about-main
       .left-context 
@@ -33,14 +34,17 @@ block content
         include includes/common/label.pug
         #joker-profile
           .profile
-            .info
-              each item, key in profile
-                div(class='author-' + key)
-                  if key === 'avatar'
-                    img(src=item, alt="")
-                  else
-                    p!= item
-
-              
-          
+            each item, key in profile
+              div(class='author-' + key)
+                if key === 'avatar'
+                  img(src=item, alt="")
+                else
+                  p!= item
+          .friends
+            span.title!= 'Friends'
+            ul
+              each item, key in friends
+                li
+                  a(href=item.url) 
+                    != '[ ' + item.name + ' ]'
 

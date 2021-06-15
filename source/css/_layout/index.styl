@@ -59,19 +59,26 @@
               line-clamp 2
               -webkit-box-orient vertical
               font-size 1.5rem
+              a
+                color #c7254e
+                background-color #f9f2f4
+              &:hover
+                text-decoration underline
+
             .summary
               font-style italic
               color #757575
               font-size .9rem
-              height 100px
+              height 105px
               margin-top 40px
               text-indent 1em
-            a
-              color #c7254e
-              background-color: #f9f2f4;
-
-              &:hover
-                text-decoration: underline
+              overflow: hidden
+              text-overflow ellipsis
+              display -webkit-box
+              -webkit-line-clamp 5
+              line-clamp 5
+              -webkit-box-orient: vertical
+              white-space pre-wrap
 
           &.back-post
             transform rotateY(180deg)
