@@ -1,12 +1,21 @@
 extends includes/layout.pug
 
 block content
+  - const photos = page.photos
+  - const title = page.title || 'joker 也不是无所不知！'
+  - const titleLink = page.link || '/' + page.path
   #joker-post
     .post-head
-      p.post-title= page.title
+      p.post-title
+        a(href=titleLink) 
+          !=title
     #joker-post-main
       article#joker-article
         != page.content
+        if photos.length > 0
+          .gallery
+            each pic in photos 
+              img(src=pic) 
         #joker-prev-next
           - const prevLink = page.prev ? page.prev.path : "#"
           - const nextLink = page.next ? page.next.path : "#"

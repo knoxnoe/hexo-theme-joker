@@ -17,7 +17,8 @@
 // loopForLanguages()
 
 $hl-code-bg= #282c34
-$hl-code-color= #abb2bf
+$hl-code-color= #a9a9b3
+//#abb2bf
 $hl-code-gutter= #555
 $hl-code-string= #FF9800
 $hl-title-pre= #337ab7
@@ -27,39 +28,8 @@ $hl-code-builtin-keyword= #F44336
 $hl-code-number= #673AB7
 $hl-blockquote-gb= #FFC107
 
-// Placeholder: $code-block
-// $code-block
-//   overflow: auto
-//   margin: 1rem 0
-//   padding: 0
-//   padding-top: 1.4rem
-//   background: $hl-code-bg
-//   color: $highlight-foreground
-//   font-size: $code-font-size
-//   line-height: $line-height-code-block
 
-//   if wordWrap
-//     counter-reset: line
-//     white-space: pre-wrap
-
-// figure.highlight
-//   position: relative
-
-// blockquote
-//   margin: 0
-//   padding: 0 0.6rem
-//   border-left: 0.2rem solid $blockquote-padding-color
-//   color: $blockquote-color
-//   position: relative
-//   &::before
-//     content: ""
-//     position: absolute
-//     height: 100%
-//     width: 2px
-//     background-color: #000
-//     left: 0
-
-#joker-post
+#joker-article
   h1, h2, h3, h4, h5
     position: relative
     cursor pointer
@@ -76,580 +46,418 @@ $hl-blockquote-gb= #FFC107
 
 
   img
-    width: 70%
+    max-width 80%
     display: block
-    margin: 0 auto
+    margin: 10px auto
   p
     text-indent 2em
   a
+    font-style italic
+    
+    color #673AB7
+    background-color #f9f2f4
     &:hover
-      color red
-  
+      text-decoration underline
+
+  ol
+    li
+      span
+        width: 1em;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        height: 1em;
+        display: inline-block;
+        line-height: 1;
+        text-align: center;
+        margin-right .5em
+  ul
+    li
+      &::before
+        content: ""
+        width 7px
+        height 7px
+        border-radius 50%
+        background-color: #BDBDBD
+        display inline-block
+        vertical-align middle
+        margin-right 5px
+
+  &>table
+    width 90%
+    margin 20px auto
+    line-height 2
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+    td,th
+      padding 0
+    caption
+      color: #000;
+      font: italic 85%/1 arial,sans-serif;
+      padding: 1em 0;
+      text-align: center;
+    td,th
+      border-left: 1px solid #cbcbcb;
+      border-width: 0 0 0 1px;
+      font-size: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: .5em 1em;
+    thead
+      background-color: #e0e0e0;
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+    td
+      background-color: transparent;
+      border-bottom: 1px solid #cbcbcb;
+    tbody>tr:last-child>td
+      border-bottom-width: 0;
+
+    .video-container
+      width 100%
+      height 500px
+      iframe
+        width 100%
+        height 500px
   // no hightlight & no prismjs
 
   // highlight
-  figure
-    margin-block-start 0
-    margin-block-end 0
-    margin-inline-start 0
-    margin-inline-end 0
-    background-color $hl-code-bg
-    padding 1.5em 1.5em 1.5em 0.5em
-    margin 10px auto
+  .joker-code-area
     width 90%
-    overflow hidden
-    overflow-x auto
     border-radius 0.5em
-
-    .gutter
+    background-color $hl-code-bg
+    margin 10px auto
+    .tool-bar
       color #fff
-      .line
-        line-height 1.5
-    .code
-      color $hl-code-color
-      display inline-block
-      margin-left 1em
-      span
-        word-spacing 2px
-      .params,.string,.title
-        padding 0 3px
-      .line
-        line-height 1.5
-        .comment
-          font-size 0.8em
-        .function
-          .title
-            color $hl-code-title
-        .keyword
-          color $hl-code-keyword
-        .built_in
+      display flex
+      position relative
+      &::after
+        content: " ";
+        position: relative;
+        border-radius: 50%;
+        background: #ff5f56;
+        width: 12px;
+        height: 12px;
+        top: 0;
+        left: 12px;
+        margin-top: 12px;
+        -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+        box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      .copy
+        cursor pointer
+        position absolute
+        right 1em
+        top 4px
+        .copy-status
+          opacity 0
+    figure
+      margin-block-start 0
+      margin-block-end 0
+      margin-inline-start 0
+      margin-inline-end 0
+      padding 1.5em 1.5em 1.5em 0.5em
+      overflow hidden
+      overflow-x auto
+
+      *
+        font-family Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      .gutter
+        user-select none
+        color #fff
+        pre
+          text-align center
+          .line
+            line-height 1
+            font-size 0.5em
+      .code
+        color $hl-code-color
+        display inline-block
+        margin-left 1em
+        .line
+          line-height 1
+          .comment
+            font-size 1em
+          .function
+            .title
+              color $hl-code-title
           .keyword
-            color $hl-code-builtin-keyword
-        .string
-          color $hl-code-string
-        .number
-          color $hl-code-number
-  blockquote
-    width 85%
-    margin 30px auto
-    padding 0 30px
-    border-left 5px solid #eee
-    font-style italic
-    background-color $hl-blockquote-gb
-    min-height 70px
-    overflow hidden
-    p
-      margin-top 15px
+            color $hl-code-keyword
+          .built_in
+            .keyword
+              color $hl-code-builtin-keyword
+          .string
+            color $hl-code-string
+          .number
+            color $hl-code-number
+    blockquote
+      width 85%
+      margin 30px auto
+      padding 0 30px
+      border-left 5px solid #eee
+      font-style italic
+      background-color $hl-blockquote-gb
+      min-height 70px
+      overflow hidden
+      p
+        margin-top 15px
 
-  .highlight .hll {
-    background: #282c34
-  }
+    .highlight .hll {
+      background: #282c34
+    }
 
-  .highlight .c {
-    color: #5c6370;
-    font-style: italic
-  }
+    .highlight .c {
+      color: #5c6370;
+      font-style: italic
+    }
 
-  .highlight .err {
-    color: #960050;
-    background-color: #1e0010
-  }
+    .highlight .err {
+      color: #960050;
+      background-color: #1e0010
+    }
 
-  .language-coq .highlight .err {
-    background-color: transparent
-  }
+    .language-coq .highlight .err {
+      background-color: transparent
+    }
 
-  .highlight .k,.language-coq .highlight .err {
-    color: #c678dd
-  }
-
-  .highlight .l {
-    color: #98c379
-  }
-
-  .highlight .n {
-    color: #abb2bf
-  }
-
-  .highlight .o {
-    color: #abb2bf
-  }
-
-  .highlight .p {
-    color: #abb2bf
-  }
-
-  .highlight .cm {
-    color: #5c6370;
-    font-style: italic
-  }
-
-  .highlight .cp {
-    color: #5c6370;
-    font-style: italic
-  }
-
-  .highlight .c1 {
-    color: #5c6370;
-    font-style: italic
-  }
-
-  .highlight .cs {
-    color: #5c6370;
-    font-style: italic
-  }
-
-  .highlight .ge {
-    font-style: italic
-  }
-
-  .highlight .gs {
-    font-weight: 700
-  }
-
-  .highlight .kc {
-    color: #c678dd
-  }
-
-  .highlight .kd {
-    color: #c678dd
-  }
-
-  .highlight .kn {
+    .highlight .k,.language-coq .highlight .err {
       color: #c678dd
-  }
+    }
 
-  .highlight .kp {
-      color: #c678dd
-  }
-
-  .highlight .kr {
-      color: #c678dd
-  }
-
-  .highlight .kt {
-      color: #c678dd
-  }
-
-  .highlight .ld {
+    .highlight .l {
       color: #98c379
-  }
+    }
 
-  .highlight .m {
-      color: #d19a66
-  }
-
-  .highlight .s {
-      color: #98c379
-  }
-
-  .highlight .na {
-      color: #d19a66
-  }
-
-  .highlight .nb {
-      color: #e5c07b
-  }
-
-  .highlight .nc {
-      color: #e5c07b
-  }
-
-  .highlight .no {
-      color: #e5c07b
-  }
-
-  .highlight .nd {
-      color: #e5c07b
-  }
-
-  .highlight .ni {
-      color: #e5c07b
-  }
-
-  .highlight .ne {
-      color: #e5c07b
-  }
-
-  .highlight .nf {
+    .highlight .n {
       color: #abb2bf
-  }
+    }
 
-  .highlight .nl {
-      color: #e5c07b
-  }
-
-  .highlight .nn {
+    .highlight .o {
       color: #abb2bf
-  }
+    }
 
-  .highlight .nx {
+    .highlight .p {
       color: #abb2bf
-  }
+    }
 
-  .highlight .py {
-      color: #e5c07b
-  }
+    .highlight .cm {
+      color: #5c6370;
+      font-style: italic
+    }
 
-  .highlight .nt {
-      color: #e06c75
-  }
+    .highlight .cp {
+      color: #5c6370;
+      font-style: italic
+    }
 
-  .highlight .nv {
-      color: #e5c07b
-  }
+    .highlight .c1 {
+      color: #5c6370;
+      font-style: italic
+    }
 
-  .highlight .ow {
+    .highlight .cs {
+      color: #5c6370;
+      font-style: italic
+    }
+
+    .highlight .ge {
+      font-style: italic
+    }
+
+    .highlight .gs {
       font-weight: 700
-  }
+    }
 
-  .highlight .w {
-      color: #f8f8f2
-  }
+    .highlight .kc {
+      color: #c678dd
+    }
 
-  .highlight .mf {
-      color: #d19a66
-  }
+    .highlight .kd {
+      color: #c678dd
+    }
 
-  .highlight .mh {
-      color: #d19a66
-  }
+    .highlight .kn {
+        color: #c678dd
+    }
 
-  .highlight .mi {
-      color: #d19a66
-  }
+    .highlight .kp {
+        color: #c678dd
+    }
 
-  .highlight .mo {
-      color: #d19a66
-  }
+    .highlight .kr {
+        color: #c678dd
+    }
 
-  .highlight .sb {
-      color: #98c379
-  }
+    .highlight .kt {
+        color: #c678dd
+    }
 
-  .highlight .sc {
-      color: #98c379
-  }
+    .highlight .ld {
+        color: #98c379
+    }
 
-  .highlight .sd {
-      color: #98c379
-  }
+    .highlight .m {
+        color: #d19a66
+    }
 
-  .highlight .s2 {
-      color: #98c379
-  }
+    .highlight .s {
+        color: #98c379
+    }
 
-  .highlight .se {
-      color: #98c379
-  }
+    .highlight .na {
+        color: #d19a66
+    }
 
-  .highlight .sh {
-      color: #98c379
-  }
+    .highlight .nb {
+        color: #e5c07b
+    }
 
-  .highlight .si {
-      color: #98c379
-  }
+    .highlight .nc {
+        color: #e5c07b
+    }
 
-  .highlight .sx {
-      color: #98c379
-  }
+    .highlight .no {
+        color: #e5c07b
+    }
 
-  .highlight .sr {
-      color: #56b6c2
-  }
+    .highlight .nd {
+        color: #e5c07b
+    }
 
-  .highlight .s1 {
-      color: #98c379
-  }
+    .highlight .ni {
+        color: #e5c07b
+    }
 
-  .highlight .ss {
-      color: #56b6c2
-  }
+    .highlight .ne {
+        color: #e5c07b
+    }
 
-  .highlight .bp {
-      color: #e5c07b
-  }
+    .highlight .nf {
+        color: #abb2bf
+    }
 
-  .highlight .vc {
-      color: #e5c07b
-  }
+    .highlight .nl {
+        color: #e5c07b
+    }
 
-  .highlight .vg {
-      color: #e5c07b
-  }
+    .highlight .nn {
+        color: #abb2bf
+    }
 
-  .highlight .vi {
-      color: #e06c75
-  }
+    .highlight .nx {
+        color: #abb2bf
+    }
 
-  .highlight .il {
-      color: #d19a66
-  }
+    .highlight .py {
+        color: #e5c07b
+    }
 
-  .highlight .gu {
-      color: #75715e
-  }
+    .highlight .nt {
+        color: #e06c75
+    }
 
-  .highlight .gd {
-      color: #f92672
-  }
+    .highlight .nv {
+        color: #e5c07b
+    }
 
-  .highlight .gi {
-      color: #a6e22e
-  }
+    .highlight .ow {
+        font-weight: 700
+    }
+
+    .highlight .w {
+        color: #f8f8f2
+    }
+
+    .highlight .mf {
+        color: #d19a66
+    }
+
+    .highlight .mh {
+        color: #d19a66
+    }
+
+    .highlight .mi {
+        color: #d19a66
+    }
+
+    .highlight .mo {
+        color: #d19a66
+    }
+
+    .highlight .sb {
+        color: #98c379
+    }
+
+    .highlight .sc {
+        color: #98c379
+    }
+
+    .highlight .sd {
+        color: #98c379
+    }
+
+    .highlight .s2 {
+        color: #98c379
+    }
+
+    .highlight .se {
+        color: #98c379
+    }
+
+    .highlight .sh {
+        color: #98c379
+    }
+
+    .highlight .si {
+        color: #98c379
+    }
+
+    .highlight .sx {
+        color: #98c379
+    }
+
+    .highlight .sr {
+        color: #56b6c2
+    }
+
+    .highlight .s1 {
+        color: #98c379
+    }
+
+    .highlight .ss {
+        color: #56b6c2
+    }
+
+    .highlight .bp {
+        color: #e5c07b
+    }
+
+    .highlight .vc {
+        color: #e5c07b
+    }
+
+    .highlight .vg {
+        color: #e5c07b
+    }
+
+    .highlight .vi {
+        color: #e06c75
+    }
+
+    .highlight .il {
+        color: #d19a66
+    }
+
+    .highlight .gu {
+        color: #75715e
+    }
+
+    .highlight .gd {
+        color: #f92672
+    }
+
+    .highlight .gi {
+        color: #a6e22e
+    }
   // prismjs
-
-  // pre,
-  // code
-  //   font-family: $code-font !important
-
-  // code
-  //   padding: 0.1rem 0.2rem
-  //   background: $code-background
-  //   color: $code-foreground
-  //   word-wrap: break-word
-  //   font-size: $code-font-size
-
-  // pre
-  //   @extend $code-block
-
-  //   code
-  //     padding: 0
-  //     background: none
-  //     color: #000
-  //     text-shadow: none
-
-  // .highlight
-  //   @extend $code-block
-  //   position: relative
-  //   border-radius: 1px
-
-  //   // &:after
-  //   //   position: absolute
-  //   //   top: 0
-  //   //   z-index: 0
-  //   //   min-width: 100%
-  //   //   height: 1.4rem
-  //   //   background: darken($highlight-background, 5)
-  //   //   content: ""
-
-  //   pre
-  //     margin: 0
-  //     padding: 8px 0
-  //     border: none
-
-  //   .line
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //     if wordWrap
-  //       &:before
-  //         display: inline-block
-  //         padding: 0 0.3rem 0 0
-  //         min-width: 1.6rem
-  //         color: $highlight-gutter.color
-  //         content: counter(line)
-  //         counter-increment: line
-  //         text-align: left
-
-  //   table
-  //     position: relative
-  //     margin: 0
-  //     width: 100%
-  //     border: none
-
-  //     // &:after
-  //     //   position: absolute
-  //     //   top: -1.4rem
-  //     //   z-index: 0
-  //     //   width: 100%
-  //     //   height: 1.4rem
-  //     //   background: darken($highlight-background, 5)
-  //     //   content: ""
-
-  //   td
-  //     padding: 0
-  //     border: none
-
-  //   figcaption
-  //     clearfix()
-  //     position: absolute
-  //     z-index: 1
-  //     margin-bottom: 1em
-  //     padding: 0.2em 0 0.2em 0.7rem
-  //     width: 100%
-  //     height: 1.4em
-  //     color: $highlight-foreground
-  //     font-size: 1em
-  //     line-height: 1em
-
-  //     span
-  //       float: left
-  //       overflow: hidden
-  //       max-width: 100%
-  //       text-overflow: ellipsis
-  //       white-space: nowrap
-
-  //     a
-  //       float: right
-  //       padding-right: 10px
-  //       color: $highlight-foreground
-
-  //       &:hover
-  //         border-bottom-color: $highlight-foreground
-
-  //     &+table
-  //       margin-top: 1em
-
-  //       &:before
-  //         margin-top: -2.1rem
-
-  //       &:after
-  //         top: -2.1rem
-
-  //   .gutter
-      
-  //     width: 30px
-
-  //     pre
-  //       padding-right: 0.5rem
-  //       padding-left: 0.5rem
-  //       background-color: $hl-code-bg
-  //       color: red
-  //       text-align: right
-
-  //   .code pre
-  //     padding-right: 0.5rem
-  //     padding-left: 0.5rem
-  //     width: 100%
-  //     background-color: $hl-code-bg
-  //     color white
-
-  //   .line
-  //     height: 1rem
-
-  
-  
-  // .gutter
-  //   user-select: none
-  //   -webkit-user-select: none
-  //   -moz-user-select: none
-  //   -ms-user-select: none
-
-  // .gist table
-  //   width: auto
-
-  //   td
-  //     border: none
-
-  // // For diff highlight
-  // pre .deletion
-  //   background: $highlight-deletion
-
-  // pre .addition
-  //   background: $highlight-addition
-
-  // pre .meta
-  //   color: $highlight-purple
-
-  // pre
-  //   .comment
-  //     color: $highlight-comment
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .variable,
-  //   .attribute,
-  //   .regexp,
-  //   .ruby .constant,
-  //   .xml .tag .title,
-  //   .xml .pi,
-  //   .xml .doctype,
-  //   .html .doctype,
-  //   .css .id,
-  //   .tag .name,
-  //   .css .class,
-  //   .css .pseudo
-  //     color: $highlight-red
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .tag
-  //     color: $highlight-aqua
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .number,
-  //   .preprocessor,
-  //   .literal,
-  //   .params,
-  //   .constant,
-  //   .command
-  //     color: $highlight-orange
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .built_in
-  //     color: $highlight-yellow
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .ruby .class .title,
-  //   .css .rules .attribute,
-  //   .string,
-  //   .value,
-  //   .inheritance,
-  //   .header,
-  //   .ruby .symbol,
-  //   .xml .cdata,
-  //   .special,
-  //   .number,
-  //   .formula
-  //     color: $highlight-green
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .keyword,
-  //   .title,
-  //   .css .hexcolor
-  //     color: $highlight-aqua
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .function,
-  //   .python .decorator,
-  //   .python .title,
-  //   .ruby .function .title,
-  //   .ruby .title .keyword,
-  //   .perl .sub,
-  //   .javascript .title,
-  //   .coffeescript .title
-  //     color: $highlight-blue
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground
-
-  //   .tag .attr,
-  //   .javascript .function
-  //     color: $highlight-purple
-
-  //     &::selection
-  //       background: $highlight-selection
-  //       color: $highlight-foreground

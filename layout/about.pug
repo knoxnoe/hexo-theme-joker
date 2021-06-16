@@ -2,10 +2,13 @@ extends includes/layout.pug
 
 block content
   include ./includes/mixins/index.pug
-  - var tagsList = list_tags({ show_count: true, style: false, separator: '' })
-  - var cateList = list_categories({ show_count: true, style: false, separator: '' })
-  - var slefIntro = theme.authorInfo.selfIntro
-
+  - const tagsList = list_tags({ show_count: true, style: false, separator: '' })
+  - const cateList = list_categories({ show_count: true, style: false, separator: '' })
+  - const slefIntro = theme.blogInfo.selfIntro
+  - const avatorUrl = theme.blogInfo.profile.avatar
+  - const name = theme.blogInfo.profile.author
+  - const profile = theme.blogInfo.profile
+  - const friends = theme.blogInfo.friends
   #joker-about
     .about-main
       .left-context 
@@ -29,4 +32,19 @@ block content
         include includes/unjoker/comments/index.pug
       .right-context 
         include includes/common/label.pug
+        #joker-profile
+          .profile
+            each item, key in profile
+              div(class='author-' + key)
+                if key === 'avatar'
+                  img(src=item, alt="")
+                else
+                  p!= item
+          .friends
+            span.title!= 'Friends'
+            ul
+              each item, key in friends
+                li
+                  a(href=item.url) 
+                    != '[ ' + item.name + ' ]'
 
